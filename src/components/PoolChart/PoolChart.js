@@ -10,6 +10,7 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
+import './PoolChart.css'
 import { useEffect, useState } from 'react';
 const axios = require('axios').default;
 
@@ -48,41 +49,24 @@ export default function PoolChart(props) {
       return
     }
 
+    const dates = Object.keys(rawData[poolId])
+
     const data = {
-      labels: [...new Set(rawData.filter((d)=>d.proposal_id==proposalId).map((i, p)=> p))],
+      labels: dates,
       datasets: [{
           label: 'For',
           data:
-          rawData[poolId].map((d)=>
+          dates.map((d)=>
           {
             let datapoint = {}
-            datapoint.x = (0.1 - 0.2*Math.random()) + d.proposal_id
-            datapoint.y = (Math.random())*1000 + Math.round(d.voting_power/1000000/100)*100
-            datapoint.voter = d.voter
-            datapoint.proposal_id = d.proposal_id
-            return d.voting_power_for_cumsum
+            datapoint.x = d
+            datapoint.y = rawData[poolId][d]
+            datapoint.poolId = poolId
+            return datapoint
           }),
           fill: false,
-          borderColor: '#7fe6a2',
+          borderColor: '#fbc02c',
           tension: 0.1
-        },
-        {
-          label: 'Against',
-          data:
-          rawData.filter((d)=>d.proposal_id==proposalId)
-                 .sort((a, b) => a.hr.localeCompare(b.hr))
-                 .map((d)=>
-          {
-            let datapoint = {}
-            datapoint.x = (0.1 - 0.2*Math.random()) + d.proposal_id
-            datapoint.y = (Math.random())*1000 + Math.round(d.voting_power/1000000/100)*100
-            datapoint.voter = d.voter
-            datapoint.proposal_id = d.proposal_id
-            return d.voting_power_against_cumsum
-          }),
-          fill: false,
-          borderColor: '#ef5176',
-          tension: 0.01
         }
       ],
     }
@@ -112,8 +96,7 @@ export default function PoolChart(props) {
             display: false
           },
           title: {
-            display: true,
-            text: 'Number of hours since the start'
+            display: false,
           }
         },
         y: {
@@ -122,7 +105,7 @@ export default function PoolChart(props) {
           },
           title: {
             display: true,
-            text: 'Amount of Voting Power'
+            text: 'Total gamma tokens since 1st of February 2022'
           }
         },
       },
@@ -133,7 +116,7 @@ export default function PoolChart(props) {
       data: data
     }
     setChartData(cd)
-  },[rawData,proposalId])
+  },[rawData,poolId])
 
   const options = {
     responsive: true,

@@ -34,7 +34,7 @@
   justify-content: left;
   font-size: calc(10px + 2vmin);
   color: white;
-  padding: 5vmin 45vmin;
+  padding: 5vmin 15vmin;
 }
 
 .App-link {
@@ -52,10 +52,11 @@
     font-size: 20px;
   }
   .App-header {
-    padding: 5vmin 15vmin;
+    padding: 4px;
   }
   .div-logo{
     width: 100%;
     padding-bottom: 10px;
+    padding-top: 8px;
   }
 }

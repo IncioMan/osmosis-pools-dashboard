@@ -2,6 +2,13 @@
   width: 100%;
     display: flex;
     justify-content: center;
-    height: 400px;
     align-items: center;
 }
+
+@media (max-width:640px) {
+.chart-container{
+  height: 80vmax;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}}
