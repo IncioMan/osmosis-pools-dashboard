@@ -28,12 +28,12 @@ ChartJS.defaults.backgroundColor = "#fff";
 ChartJS.defaults.borderColor = "#fff";
 
 export default function PoolChart(props) {
-  const {proposalId} = props
+  const {poolId} = props
   const [rawData, setRawData] = useState([])
   const [chartData, setChartData] = useState({options:null, data:null})
   
   useEffect(()=>{
-    axios.get("https://raw.githubusercontent.com/IncioMan/osmosis-pools-dashboard/master/data/delta_cumsum.csv")
+    axios.get("https://raw.githubusercontent.com/IncioMan/osmosis-pools-dashboard/master/data/delta_cumsum.json")
         .then(function (response) {
           console.log(response.data)
           setRawData(response.data)
@@ -53,7 +53,7 @@ export default function PoolChart(props) {
       datasets: [{
           label: 'For',
           data:
-          rawData.filter((d)=>d.proposal_id==proposalId).sort((a, b) => a.hr.localeCompare(b.hr)).map((d)=>
+          rawData[poolId].map((d)=>
           {
             let datapoint = {}
             datapoint.x = (0.1 - 0.2*Math.random()) + d.proposal_id

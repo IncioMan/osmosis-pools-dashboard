@@ -17,7 +17,7 @@ function App() {
             <option value="audi">DAI/OSMO</option>
           </select>
         </div>
-        <PoolChart></PoolChart>
+        <PoolChart poolId={1}/>
       </header>
     </div>
   );
