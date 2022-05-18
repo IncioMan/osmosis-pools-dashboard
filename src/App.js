@@ -1,22 +1,21 @@
-import logo from './logo.svg';
+import logo from './images/osmosis.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className='div-logo'>
+          <img src={logo} className="App-logo" alt="logo" />
+        </div>
+        <div className='div-pool-select'>
+          <select className='pool-select' id="cars">
+            <option value="volvo">ATOM/OSMO</option>
+            <option value="saab">USDC/OSMO</option>
+            <option value="opel">CRO/OSMO</option>
+            <option value="audi">DAI/OSMO</option>
+          </select>
+        </div>
       </header>
     </div>
   );
