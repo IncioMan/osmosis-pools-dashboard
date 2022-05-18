@@ -1,5 +1,6 @@
 import logo from './images/osmosis.svg';
 import './App.css';
+import PoolChart from './components/PoolChart/PoolChart';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <option value="audi">DAI/OSMO</option>
           </select>
         </div>
+        <PoolChart></PoolChart>
       </header>
     </div>
   );
