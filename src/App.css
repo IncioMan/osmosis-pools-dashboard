@@ -54,4 +54,8 @@
   .App-header {
     padding: 5vmin 15vmin;
   }
+  .div-logo{
+    width: 100%;
+    padding-bottom: 10px;
+  }
 }
