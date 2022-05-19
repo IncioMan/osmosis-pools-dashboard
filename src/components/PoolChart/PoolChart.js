@@ -31,7 +31,7 @@ ChartJS.defaults.borderColor = "#fff";
 export default function PoolChart(props) {
   const [rawData, setRawData] = useState([])
   const [chartData, setChartData] = useState({options:null, data:null})
-  const [poolIds, setPoolIds] = useState(1)
+  const [poolIds, setPoolIds] = useState([])
   const [poolId, setPoolId] = useState(1)
 
   const handlePoolSelection = (e) => {
