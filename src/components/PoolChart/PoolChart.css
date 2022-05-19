@@ -5,10 +5,34 @@
     align-items: center;
 }
 
+.div-pool-select{
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+
+.pool-select{
+background: transparent;
+color: white;
+border: none;
+border-bottom: solid;
+font-size: 3vmin;
+}
+
 @media (max-width:640px) {
 .chart-container{
   height: 80vmax;
       display: flex;
       justify-content: center;
       align-items: center;
+      
+}
+.div-pool-select{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+.pool-select{
+  font-size: 20px;
 }}

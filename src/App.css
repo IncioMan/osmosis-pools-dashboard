@@ -11,19 +11,7 @@
   pointer-events: none;
 }
 
-.div-pool-select{
-    width: 100%;
-    display: flex;
-    justify-content: right;
-}
 
-.pool-select{
-  background: transparent;
-  color: white;
-  border: none;
-  border-bottom: solid;
-  font-size: 3vmin;
-}
 
 .App-header {
   background-color: #231d4b;
@@ -42,15 +30,7 @@
 }
 
 @media (max-width:640px) {
-  .div-pool-select{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
-  }
-  .pool-select{
-    font-size: 20px;
-  }
+
   .App-header {
     padding: 4px;
   }
